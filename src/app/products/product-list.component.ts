@@ -3,7 +3,6 @@ import { IProduct } from "./product";
 import { ProductService } from "./product.service";
 
 @Component({
-    selector: "pm-products",
     templateUrl: "./product-list.component.html",
     styleUrls: ["./product-list.component.css"]
 })
@@ -20,6 +19,7 @@ export class ProductListComponent implements OnInit {
     }
     set listFilter(value: string) {
         this._listFilter = value;
+        this.filteredProducts = this.performFilter(this._listFilter);
     }
 
     filteredProducts: IProduct[];
